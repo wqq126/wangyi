@@ -1,0 +1,36 @@
+	
+
+<style>
+    li{border: 1px solid gainsboro;margin: 10px;padding: 5px;}
+
+</style>
+
+	
+
+<div   class=" commentList mui-content mui-scroll-wrapper"  style="overflow: scroll;margin-top: 15%;margin-bottom: 15%;">
+    <ul ng-repeat="item in commentIds">
+
+        <li data="item" comment>
+            <div id="floor">
+	            <div class="reply-user clear">
+	                <div class="reply-left">
+	                	<img  ng-src="{{comments[id]['user'].avatar||'http://img5.cache.netease.com/tie/images/noface80_80.png'}}" alt="">
+	                </div>
+	                
+	                <div class="reply-right">
+		                <p class="name">
+		                	{{ comments[id]['user'].nickname ||'火星网友'}}
+		                	
+		                </p>
+		                <p class="location">
+		                	{{comments[id]['user'].location}}
+		                </p>
+		        		<div class="reply-comment">{{comments[id]['content']}}</div>        
+	                </div>
+	            </div>
+	        </li>
+	    </div>
+        
+    </ul>
+
+</div>

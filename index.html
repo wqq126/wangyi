@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>index</title>
+		<link rel="stylesheet" href="alifonts/demo.css" />
+		<link rel="stylesheet" href="alifonts/iconfont.css" />
+		<!--加载mui-->
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_ikfifme329zlg14i.css" />
+		<script src="js/mui.min.js"></script>
+		<!--加载angular-->
+		<script src="js/jquery.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-ui-router.min.js"></script>
+		<script src="js/angular-sanitize.js"></script>
+		<script src="js/lib/ng-infinite-scroll.min.js"></script>
+		<!--加载app.js-->
+		<script src="js/app.js"></script>
+		<script src="js/service/news-list.js"></script>
+		<script src="js/directive/scroll.js"></script>
+		<script src="js/service/topic.js"></script>
+		<script src="js/directive/navBar.js"></script>
+		<script src="js/service/headService.js"></script>
+		<script src="js/service/commentService.js"></script>
+		<script src="js/directive/replyDir.js"></script>
+		<script src="js/directive/compileHtml.js"></script>
+		<script src="js/directive/showDialog.js"></script>
+		<!--初始化-->
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.plusReady(function() {
+
+				var isExit = false;
+				mui.back = function() {
+					if(isExit) {
+						mui.toast('程序已退出');
+						plus.runtime.quit();
+					} else {
+						isExit = true;
+						history.back();
+						//  				mui.toast('再按一次推出程序');
+						setTimeout(function() {
+							isExit = false;
+						}, 1000);
+					}
+				}
+			})
+		</script>
+	</head>
+
+	<body ng-app='myApp' ng-controller='myCtrl'>
+		<header class="mui-bar mui-bar-nav">
+			<a style="display: inline-block;background: rgb(247,247,247);" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href=""></a>
+			<nav-bar></nav-bar>
+		</header>
+		<div class="mui-content">
+			<div ui-view=''></div>
+		</div>
+		<footer class="mui-bar mui-bar-tab">
+			<div class="mui-button-row mui-pull-bottom" style="display: flex;justify-content: space-around;">
+				<span  style="width:100px" ui-sref=".news">
+            		<button class="icon iconfont icon-icon_rediandianji">
+            			<div>新闻</div>
+            		</button>
+        		</span>
+				<span  style="width:100px" ui-sref=".live">
+					<button class=" icon iconfont icon-zhibo">
+						<div>
+							直播
+						</div>
+					</button>
+        		</span>
+
+				<span  style="width:100px" ui-sref=".page3">
+            		<button class=" icon iconfont icon-icon_rediandianji ">
+            			<div>
+            				话题
+            			</div>
+            		</button>            	
+        		</span>
+        		<span  style="width:100px" ui-sref=".page3">
+            		<button class=" icon iconfont icon-icon_rediandianji ">
+            			<div>
+            				话题
+            			</div>
+            		</button>            	
+        		</span>
+			</div>
+		</footer>
+	</body>
+
+</html>

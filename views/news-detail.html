@@ -1,0 +1,29 @@
+<div  class="mui-content-padded">
+
+<h3>{{news.title}}</h3>
+    <article ng-bind-html="body"></article>
+    
+	<div id="floor" style="margin-bottom: 30px;padding-bottom: 300px;">
+        <li ng-repeat="reply in preThree">
+            <div class="reply-user clear">
+                <div class="reply-left">
+                	<img  ng-src="{{reply.user.avatar||'http://img5.cache.netease.com/tie/images/noface80_80.png'}}" alt="">
+                </div>
+                
+                <div class="reply-right">
+	                <p class="name">
+	                	{{reply.user.nickname ||'火星网友'}}
+	                	
+	                </p>
+	                <p class="location">
+	                	{{reply.user.location}}
+	                </p>
+	        		<div class="reply-comment">{{reply.content}}</div>        
+                </div>
+            </div>
+        </li>
+		
+    	<button ui-sref='news.comment({id:id})' style="margin-top: 30px;" class="mui-btn mui-btn-negative mui-btn-block mui-btn-outlined">更多跟帖</button>    
+    </div>
+	
+</div>

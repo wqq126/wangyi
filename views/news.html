@@ -1,0 +1,34 @@
+
+<div  id="refreshContainer" class="mui-content mui-scroll-wrapper"  style="overflow: scroll;margin-top: 15%;margin-bottom: 15%;">
+	
+    <!--数据列表-->
+    <ul scroll  class=" mui-table-view mui-table-view-chevron" style="height:100%;overflow: scroll;position: relative;">
+    	
+	<li class=" libox " ng-repeat='item in items'>
+		<!--ui-sref='news.detail({id:item.docid})'-->
+		<div class="news-list clear" ui-sref='news.detail({id:item.docid})'>
+			<div class="mui-pull-left" style="width: 20%;height: 60px;">
+				<img ng-src="{{item.imgsrc}}">
+			</div>
+			<div class="mui-pull-right" style="width: 78%;padding: 5px;">
+				<p style="font-size: 20px;font-weight: bold;color: black;">{{item.title}}</p>
+				<p>{{item.source}}</p>
+				
+				<p style="text-align: right;">跟帖{{item.replyCount}}
+					<span compile-html data-source='{{item.source}}' ng-click='deleshow(item,$event)' class=" showDialog mui-icon mui-icon-closeempty "></span>
+				</p>
+			</div>
+		</div>
+	</li>
+<div class="delDialog">
+    	<h4>选择不敢兴趣的原因</h4>
+    	{{test}}
+    	<div style="margin-top: 50px;" class="selectBox">
+    		<span>不敢兴趣</span> <span>内容质量差</span>  <span>不喜欢</span>  <span>重复、久闻</span>
+    	</div>
+    	<button ng-click='delcancle()' class="  mui-btn mui-btn-primary cancleBtn">取消</button>
+    	<button ng-click='delok($event)' class="  mui-btn mui-btn-primary okBtn">确定</button>
+</div>	
+</ul>
+
+</div>
